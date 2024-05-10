@@ -1,43 +1,60 @@
 pipeline {
-    agent any
+  agent any
 
-    stages {
-        stage('Build') { 
-            steps {
-                echo 'Building code using Maven'
-                
-            }
-        }
-        stage('Unit & Integration Tests') { 
-            steps {
-                echo 'Running unit tests with JUnit'
-                echo 'Running integration tests with Selenium'
-            }
-        }
-        stage('Code Test') {
-            steps {
-                echo 'Analyzing code with SonarQube'
-            }
-        }
-        stage('Security Scan') {
-            steps {
-                echo 'Scanning for vulnerabilities with SAST scanner'
-            }
-        }
-        stage('Deploy to Staging') {
-            steps {
-                echo 'Deploying to staging server (e.g., using AWS CLI or tools)'
-            }
-        }
-        stage('Integration Tests on Staging') {
-            steps {
-                echo 'Running integration tests on staging environment'
-            }
-        }
-        stage('Deploy to Production') {
-            steps {
-                echo 'Deploying to production server (e.g., using AWS CLI or tools)'
-            }
-        }
+  stages {
+    stage('Build') { 
+      steps {
+        echo 'Building code using Maven'
+      }
     }
+    stage('Unit & Integration Tests') { 
+      steps {
+        echo 'Running unit tests with JUnit'
+        echo 'Running integration tests with Selenium'
+      }
+      post {
+        success {
+          emailext(
+            to: "vepatimanoj98@gmail.com",
+            subject: "Unit and Integration Test Status",
+            body: "Your Unit and Integration Test was successful!"
+          )
+        }
+      }
+    }
+    stage('Code Test') {
+      steps {
+        echo 'Analyzing code with SonarQube'
+      }
+    }
+    stage('Security Scan') {
+      steps {
+        echo 'Scanning for vulnerabilities with SAST scanner'
+      }
+      post {
+        success {
+          emailext(
+            to: "vepatimanoj98@gmail.com",
+            subject: "Security Scan Status",
+            body: "Your Security Scan was successful!"
+          )
+        }
+      }
+    }
+    stage('Deploy to Staging') {
+      steps {
+        echo 'Deploying to staging server (e.g., using AWS CLI or tools)'
+      }
+    }
+    stage('Integration Tests on Staging') {
+      steps {
+        echo 'Running integration tests on staging environment'
+      }
+    }
+    stage('Deploy to Production') {
+      steps {
+        echo 'Deploying to production server (e.g., using AWS CLI or tools)'
+      }
+    }
+  }
 }
