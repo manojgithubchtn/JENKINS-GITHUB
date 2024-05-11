@@ -2,12 +2,12 @@ pipeline {
   agent any
 
   stages {
-    stage('Build') { 
+    stage('Build') {
       steps {
         echo 'Fetching and Building code using Maven'
       }
     }
-    stage('Unit & Integration Tests') { 
+    stage('Unit & Integration Tests') {
       steps {
         echo 'Running unit tests with JUnit'
         echo 'Running integration tests with Selenium'
