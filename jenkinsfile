@@ -43,7 +43,7 @@ pipeline {
     }
     stage('Deploy to Staging') {
       steps {
-        echo 'Deploying to staging server (e.g., using AWS CLI or tools)'
+        echo 'Deploying to staging server using AWS CLI'
       }
     }
     stage('Integration Tests on Staging') {
@@ -53,7 +53,7 @@ pipeline {
     }
     stage('Deploy to Production') {
       steps {
-        echo 'Deploying to production server (e.g., using AWS CLI or tools)'
+        echo 'Deploying to production server using AWS CLI'
       }
     }
   }
