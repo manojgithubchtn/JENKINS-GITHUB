@@ -16,8 +16,8 @@ pipeline {
         success {
           emailext(
             to: "vepatimanoj98@gmail.com",
-            subject: "Unit & Integration Test Status",
-            body: "Your Unit & Integration Test was successful!"
+            subject: "Unit and Integration Test Status",
+            body: "Your Unit and Integration Test was successful!"
           )
         }
       }
