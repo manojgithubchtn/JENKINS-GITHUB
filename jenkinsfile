@@ -7,7 +7,7 @@ pipeline {
         echo 'Fetching and Building code using Maven'
       }
     }
-    stage('Unit & Integration Test') {
+    stage('Unit & Integration Tests') {
       steps {
         echo 'Running unit tests with JUnit'
         echo 'Running integration tests with Selenium'
