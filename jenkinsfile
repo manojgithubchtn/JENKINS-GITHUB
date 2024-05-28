@@ -18,6 +18,7 @@ pipeline {
             to: "vepatimanoj98@gmail.com",
             subject: "Unit and Integration Test Status",
             body: "Your Unit and Integration Test was successful!"
+            attachlog: true
           )
         }
       }
@@ -37,6 +38,7 @@ pipeline {
             to: "vepatimanoj98@gmail.com",
             subject: "Security Scan Status",
             body: "Your Security Scan was successful!"
+            attachlog: true
           )
         }
       }
